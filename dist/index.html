@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortcut icon" href="#" />
+</head>
+<body>
+    <div id = 'container'>
+        
+        <div id = 'input-bar'>
+            <input id = 'input' type = 'text' placeholder="Search City">
+            <button id = 'btn' onclick="handleSearch()">Search!</button>
+        </div>
+
+        <div id = 'cities-container'></div>
+
+    </div>
+<div>Hello</div>
+    <script id = "cities-template" type = "text/x-handlebars-template">
+        {{#each cityData}}
+            <div class = 'city'>
+                <div class = 'details'>
+                    <p class = 'name'>{{name}}</p>
+                    <p class = 'temp'>{{temperature}}°</p>
+                </div>
+                <div class = 'con'>
+                    <p class = 'condition'>{{condition}}</p>
+                    <img class = 'conditionPic' src = '{{conditionPic}}'>
+                </div>
+                    {{#if isSaved}}
+                    <div class = "btn remBtn" onclick="removeCity(this)">-</div>
+                    {{else}}
+                    <div class = "btn saveBtn" onclick="saveCity(this)">+</div>
+                    {{/if}}
+            </div>
+        {{/each}}
+    </script>
+
+
+
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/handlebars/dist/handlebars.js"></script>
+    <script src="DataManager.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
+
+
+
